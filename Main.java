@@ -1,12 +1,14 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 public class Main {
 
 
     public static void main(String[] args) {
         System.out.println("RECURSION\n");
+         
         Scanner input = new Scanner(System.in);
-        
+        /*
         System.out.println("EXAMPLE 1: Tail Recursion");
         example1(5);
         System.out.println();
@@ -36,31 +38,33 @@ public class Main {
         System.out.print("Enter a nonnegative integer: ");
         n = input.nextInt();
         System.out.println("\nEXAMPLE 5: Sequence value at " + n + " is " + example5(n));
-        
+         
         String s;
         s = input.nextLine();  //used to clear newline from nextInt
         System.out.println("\nEXAMPLE 6: String Clean");
         System.out.print("Enter a String ");
         s = input.nextLine();
         System.out.println("\nEXAMPLE 6: The String: " + s + " cleaned is " + example6(s));
+        
 
+        //String s;
         System.out.println("\nEXAMPLE 7: Count ABCs");
         System.out.print("Enter a String ");
         s = input.nextLine();
         System.out.println("\nEXAMPLE 7: The String: " + s + " has " + example7(s) + " abcs");
-           
+        
+        */
+        int n;
         System.out.println("\nEXAMPLE 8: Bunny Ears");
         System.out.print("Enter a nonnegative integer: ");
         n = input.nextInt();
         System.out.println("\nEXAMPLE 8: " + n + " bunnies have " + example8(n) + " ears");
-        /*    
+            
         System.out.println("\nEXAMPLE 9: Mutant Bunny Ears");
         System.out.print("Enter a nonnegative integer: ");
         n = input.nextInt();
         System.out.println("\nEXAMPLE 9: " + n + " mutant bunnies have " + example9(n) + " ears");
-        */
-
-        /*
+ 
         System.out.println("\nEXAMPLE 10: Demo - Binary Trees");
         BinaryTree tree = new BinaryTree();
         tree.buildTree();
@@ -74,8 +78,7 @@ public class Main {
 
         System.out.println("\nEXAMPLE 12: Greatest Common Divisor Version 2");
         Recursion.gcd2(153200,90, 0);
-        */
-        /*
+     
 
 
         Recursion.ex15("abcdefabc");
@@ -96,7 +99,7 @@ public class Main {
         grid.add(row4);
 	    if (Recursion.findMazePath(grid, 0, 0))
 		    Recursion.printMaze(grid);
-        */
+       
      }
  
     
@@ -158,7 +161,13 @@ public class Main {
     //count abcs
     public static int example7(String str){
        //writing this as a group
-       return 0;
+       if (str.length() < 3)
+        return 0;
+       if (str.substring(0,3).equals("abc"))
+        return 1 + example7(str.substring(3));
+       else
+        return example7(str.substring(1));
+
     }
 
     //bunny ears
@@ -167,8 +176,10 @@ public class Main {
 
     public static int example8(int n){
        //writing this as a group
-       
-        return 0;
+       if (n <= 0)
+          return 0;
+       else
+          return 2 + example8(n-1);    
     }
 
     //mutant bunny ears
@@ -179,8 +190,12 @@ public class Main {
 
     public static int example9(int n){
        //writing this as a group
-
-       return 0;
+       if (n <= 0) 
+           return 0;
+       else if (n%2 == 0)
+           return 2 + example9(n-1);
+       else
+           return 3 + example9(n-1);
     }
  
 }

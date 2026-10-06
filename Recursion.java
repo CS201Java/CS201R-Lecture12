@@ -3,10 +3,6 @@ import java.util.Collections;
 
 public class Recursion{
 
-    static int ROW = 5, COL = 5;
-    static char BACKGROUND = ' ';
-    static char DEADEND = 'D';
-    static char PATH = 'P';
     
     public static int gcd1(Integer a, Integer b){
         int x = 0;
@@ -105,7 +101,18 @@ public class Recursion{
         System.out.println("\n");
     }
 
+    //ArrayList<Character> row0 = new ArrayList<>(Arrays.asList(' ','D',' ','D','D'));
+    //ArrayList<Character> row1 = new ArrayList<>(Arrays.asList(' ','D',' ','D','D'));
+    //ArrayList<Character> row2 = new ArrayList<>(Arrays.asList(' ',' ',' ','D',' '));
+    //ArrayList<Character> row3 = new ArrayList<>(Arrays.asList(' ','D',' ',' ',' '));
+    //ArrayList<Character> row4 = new ArrayList<>(Arrays.asList(' ','D',' ','D',' '));
+    static int ROW = 5, COL = 5;
+    static char BACKGROUND = ' ';
+    static char DEADEND = 'D';
+    static char PATH = 'P';
+
     public static boolean findMazePath(ArrayList<ArrayList<Character>> grid, Integer r, Integer c) {
+        printMaze(grid);
         if (r < 0 || c < 0 || r >= ROW || c >= COL)
             return false;      // Cell is out of bounds.
 
